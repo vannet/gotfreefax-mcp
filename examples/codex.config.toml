@@ -1,0 +1,21 @@
+# Add to ~/.codex/config.toml
+
+# No-credentials (free tools only):
+[mcp_servers.gotfreefax]
+command = "npx"
+args = ["mcp-remote", "https://www.gotfreefax.com/mcp"]
+
+
+# To unlock authenticated tools, replace the block above with the
+# credentialed variant below:
+#
+# [mcp_servers.gotfreefax]
+# command = "npx"
+# args = [
+#   "mcp-remote",
+#   "https://www.gotfreefax.com/mcp",
+#   "--header", "Authorization:${GOTFREEFAX_AUTH}"
+# ]
+#
+# [mcp_servers.gotfreefax.env]
+# GOTFREEFAX_AUTH = "Bearer REPLACE_WITH_BASE64_OF_ACCOUNT_COLON_PIN"

@@ -1,0 +1,87 @@
+{
+  "name": "gotfreefax",
+  "displayName": "GotFreeFax",
+  "description": "Send faxes to the US and Canada from Claude, ChatGPT, Codex, and other AI agents. No account required to start; prepaid accounts unlock larger documents and the no-confirmation paid send path.",
+  "version": "1.0.0",
+  "homepage": "https://www.gotfreefax.com",
+  "documentation": "https://www.gotfreefax.com/mcp-server",
+  "repository": "https://github.com/vannet/gotfreefax-mcp",
+  "license": "MIT",
+  "logo": "https://raw.githubusercontent.com/vannet/gotfreefax-mcp/main/logo.png",
+  "icon": "https://raw.githubusercontent.com/vannet/gotfreefax-mcp/main/logo.png",
+  "vendor": "GotFreeFax.com",
+  "categories": ["communication", "fax", "messaging", "productivity"],
+  "tags": ["fax", "claude", "chatgpt", "free-fax", "us-canada", "paypal"],
+  "server": {
+    "type": "remote",
+    "transport": "streamable-http",
+    "endpoint": "https://www.gotfreefax.com/mcp",
+    "protocolVersion": "2024-11-05"
+  },
+  "authentication": {
+    "type": "bearer",
+    "required": false,
+    "description": "Optional Bearer token. Format: 'Bearer ' + base64(account_number + ':' + pin). 4 of 7 tools work anonymously; the rest require a GotFreeFax prepaid account."
+  },
+  "tools": [
+    {
+      "name": "send_free_fax",
+      "description": "Send a free fax to a US/Canada number. Max 3 pages, 2/day per email/IP, email-confirmation required before the fax actually sends.",
+      "requiresAuth": false
+    },
+    {
+      "name": "send_fax",
+      "description": "Send a fax via a prepaid account. Up to 300 pages, no confirmation step.",
+      "requiresAuth": true
+    },
+    {
+      "name": "check_fax_status",
+      "description": "Look up the delivery status of a fax by its job_id (the 10-letter PublicId returned by send_*).",
+      "requiresAuth": false
+    },
+    {
+      "name": "list_sent_faxes",
+      "description": "List paid faxes the authenticated account has sent, paginated, most recent first.",
+      "requiresAuth": true
+    },
+    {
+      "name": "get_account_balance",
+      "description": "Get the current page balance and dollar balance for the authenticated account.",
+      "requiresAuth": true
+    },
+    {
+      "name": "purchase_credits",
+      "description": "Start a prepaid credit purchase. Returns a PayPal payment URL. Authenticated -> credits added to existing account; unauthenticated -> creates a new prepaid account (or loads existing one with same email) and emails credentials after payment.",
+      "requiresAuth": false
+    },
+    {
+      "name": "list_supported_formats",
+      "description": "Static list of accepted file types (PDF, DOC, DOCX, JPG, JPEG, TXT).",
+      "requiresAuth": false
+    }
+  ],
+  "examples": [
+    {
+      "title": "Send a free fax",
+      "prompt": "Send a free fax to 555-123-4567 with the text 'Hello from Claude'."
+    },
+    {
+      "title": "Buy prepaid credits",
+      "prompt": "I'd like to buy 100 prepaid fax credits — my email is alice@example.com and my name is Alice."
+    },
+    {
+      "title": "Check fax status",
+      "prompt": "What's the status of fax job ABCDEFGHIJ?"
+    }
+  ],
+  "supportedClients": [
+    "Claude Desktop",
+    "Codex CLI",
+    "ChatGPT (via Connectors / Apps)",
+    "Cursor",
+    "Windsurf",
+    "Any MCP client over HTTP"
+  ],
+  "privacyPolicy": "https://www.gotfreefax.com/privacy.aspx",
+  "termsOfService": "https://www.gotfreefax.com/terms.aspx"
+}

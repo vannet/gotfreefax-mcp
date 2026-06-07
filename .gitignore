@@ -1,0 +1,16 @@
+# Editor + OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Node (in case anyone runs npm install for mcp-remote locally)
+node_modules/
+npm-debug.log*
+.npm/
+
+# Local secrets — never commit
+.env
+.env.local
+*.secret
+gotfreefax_auth.txt
