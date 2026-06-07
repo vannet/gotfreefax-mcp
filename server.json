@@ -3,7 +3,15 @@
   "name": "com.gotfreefax/mcp",
   "title": "GotFreeFax",
   "description": "Send free or paid faxes to US/Canada from Claude, ChatGPT, and other AI agents.",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "websiteUrl": "https://www.gotfreefax.com/mcp-server",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/vannet/gotfreefax-mcp/main/logo.png",
+      "mimeType": "image/png",
+      "sizes": ["384x384"]
+    }
+  ],
   "repository": {
     "url": "https://github.com/vannet/gotfreefax-mcp",
     "source": "github"
