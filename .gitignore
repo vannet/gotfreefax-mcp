@@ -14,3 +14,11 @@ npm-debug.log*
 .env.local
 *.secret
 gotfreefax_auth.txt
+
+# MCP Registry publisher private keys — these prove ownership of the
+# com.gotfreefax/* namespace. Treat like an SSH key: never commit, never
+# share. If leaked, rotate by generating a new keypair and updating the
+# DNS TXT record on gotfreefax.com.
+*.key
+*.pem
+gotfreefax-mcp-publisher.*

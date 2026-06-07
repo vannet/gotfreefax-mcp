@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.gotfreefax/mcp",
+  "title": "GotFreeFax",
+  "description": "Send free or paid faxes to US/Canada from Claude, ChatGPT, and other AI agents.",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/vannet/gotfreefax-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://www.gotfreefax.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Optional Bearer token: 'Bearer ' + base64(account_number + ':' + pin). Required for paid tools.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
